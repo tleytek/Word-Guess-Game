@@ -4,7 +4,7 @@ https://tleytek.github.io/Word-Guess-Game/
 
 File Structure
 
-![alt text](https://gyazo.com/812587dfbbb3c7ef6c90ee619c33b0cc)
+![alt text](assets/css/images/webpage image.png)
 
 Psuedo code
 
