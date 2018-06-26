@@ -4,13 +4,7 @@ https://tleytek.github.io/Word-Guess-Game/
 
 File Structure
 
-├── assets
-| ├── css
-| | └── style.css
-| ├── images
-| └── javascript
-| └── game.js
-└── index.html
+![alt text](https://gyazo.com/812587dfbbb3c7ef6c90ee619c33b0cc)
 
 Psuedo code
 
