@@ -14,7 +14,7 @@ var guessesLeft = 14;
 var incorrectLetters = [];
 var correctLetters = [];
 var words = ["planck", "nyquist", "zealios", "dactyl", "iris", "ergodox"];
-var currentWord = words[Math.floor(Math.random() * 7)];
+var currentWord = words[Math.floor(Math.random() * 6)];
 //correct letters are turned into underscores at the same length of the random word
 for (var i = 0; i < currentWord.length; i++) {
   correctLetters.push("_");
@@ -45,30 +45,70 @@ function guess(letterGuessed) {
   }
 }
 
-function checkScore() {
-  //again the -1 of indexOf is a game changer for me
+function reset() {
+  //again the -1 return on indexOf is a game changer for me
   //checks to see of any underscores are left, meaning the full word was guessed correctly
   if (correctLetters.indexOf("_") === -1) {
+    picture();
     wins++;
-  } else if (guessesLeft === 0) {
-    guessesLeft = 13;
+    guessesLeft = 14;
+    document.getElementById("answer").innerHTML = currentWord;
     currentWord = words[Math.floor(Math.random() * 7)];
+    incorrectLetters = [];
+    correctLetters = [];
+    for (var i = 0; i < currentWord.length; i++) {
+      correctLetters.push("_");
+    }
+  } else if (guessesLeft === 0) {
+    guessesLeft = 14;
+    currentWord = words[Math.floor(Math.random() * 7)];
+    incorrectLetters = [];
+    correctLetters = [];
+    for (var i = 0; i < currentWord.length; i++) {
+      correctLetters.push("_");
+    }
   }
 }
 
+//Shows images of what word they guessed correctly
 function picture() {
+  var changePicture = document.getElementById("imgAnswer");
+  var tip = document.getElementById("tip");
+  //var productPage = documents.getElementById("tip");
   switch (currentWord) {
     case "planck":
+      changePicture.src = "assets/images/planck.jpg";
+      break;
+    case "nyquist":
+      changePicture.src = "assets/images/nyquist.jpg";
+      break;
+    case "zealios":
+      changePicture.src = "assets/images/zealios.jpg";
+      break;
+    case "dactyl":
+      changePicture.src = "assets/images/dactyl.jpg";
+      break;
+    case "iris":
+      changePicture.src = "assets/images/iris.jpg";
+      break;
+    case "ergodox":
+      changePicture.src = "assets/images/ergodox.jpg";
+      break;
   }
 }
 
 //on any keypress, start the game
-document.onkeyup = function(event) {
+document.onkeydown = function(event) {
   var letterGuessed = event.key;
   guess(letterGuessed);
-  checkScore();
-  console.log(letterGuessed);
-  console.log(guessesLeft);
-  console.log(correctLetters);
-  console.log(incorrectLetters);
+  reset();
+  document.getElementById("wins").innerHTML = "Wins: " + wins;
+  document.getElementById("correctLetters").innerHTML = correctLetters.join(
+    " "
+  );
+
+  document.getElementById("guessesLeft").innerHTML = guessesLeft;
+  document.getElementById("incorrectLetters").innerHTML = incorrectLetters.join(
+    " "
+  );
 };

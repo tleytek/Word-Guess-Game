@@ -8,23 +8,34 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
     <script type="text/javascript" src="assets/javascript/game.js">
     </script>
+    <title>Keyboard Hangman Game</title>
 </head>
 
 <body>
+
     <div class="row justify-content-center">
+
         <img src="assets/images/olkb_transparent.png" alt="olkb logo">
     </div>
     <div class="row justify-content-center">
+        <h1 id=answer></h1>
+    </div>
+    <div class="row justify-content-center">
         <div class="col-4 border border-thick">
-            <h1>test</h1>
+            <img id="imgAnswer" src="assets/images/logo.jpg" alt="Answer Image" width="100%">
         </div>
-        <div class="col-4">
-            <h1>test</h1>
-            <p>Press any key to get started!</p>
-            <p id="wins">Wins: </p>
-            <p id="word"></p>
+        <div class="col-4 border border-thick" align="center">
+            <h1>Press any key to get started!</h1>
+            <p id="wins">Wins: 0</p>
+            <p>Current Word</p>
+            <p id="correctLetters"> ------------------</p>
+            <p>Number of Guesses Remaining:</p>
+            <p id="guessesLeft">14</p>
+            <p>Incorrect Letters</p>
+            <p id="incorrectLetters">------------------</p>
 
         </div>
 
